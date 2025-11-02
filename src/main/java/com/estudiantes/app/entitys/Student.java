@@ -25,7 +25,7 @@ public class Student {
 	private String email;
 	
 	//constructor vacio
-	Student(){
+	public Student(){
 	}
 	
 	//Getters and Setters
