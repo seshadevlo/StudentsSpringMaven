@@ -16,7 +16,7 @@
         <div class="row mt-5">
             <div class="col-4 offset-4">
 
-                <form class="fondo-form" th:object="${student}" th:action="@{/students}" method="POST">
+                <form th:action="@{/students}" class="fondo-form" th:object="${student}" method="POST">
                    
                     <div class="mb-3">
                         <label for="name" class="form-label">Nombre</label>
@@ -55,6 +55,7 @@
                     <div class="d-grid gap-2">
                         <button type="submit" class="btn btn-success">Send</button>
                     </div>
+                    
 
                 </form>
             </div>

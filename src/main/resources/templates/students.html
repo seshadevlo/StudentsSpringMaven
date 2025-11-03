@@ -17,45 +17,46 @@
 	<div th:replace="fragments/navbar :: navbar"></div>
 	<!-- End Navbar -->
 	<!-- Tabla -->
-	<div class="container mt-5">
-		<h2 class="text-center mb-4">List Students</h2>
-		<div class="row">
-		<div class="col">
-		<a class="btn btn-outline-success" th:href="@{students/new}"><i class="mx-1 fa-solid fa-plus"></i>Create User</a>
-		</div>
-		</div>
-		
-		<div class="row">
-			<div class="col-6 offset-3">
-				<table class="table">
-					<thead>
-						<tr>
-							<th scope="col">#</th>
-							<th scope="col">Name</th>
-							<th scope="col">Lastname</th>
-							<th scope="col">Email</th>
-							<th scope="col">Actions</th>
-						</tr>
-					</thead>
-					<tbody class="table-group-divider">
-						
-						<tr>
-							<td></td>
-							<td></td>
-							<td></td>
-							<td></td>
-							<td><a class="text-success"
-								href="#"><i
-									class="fa-solid fa-pen-to-square mx-3"></i></a> <a
-								class="text-danger"
-								href="#"><i
-									class="fa-solid fa-trash"></i></a></td>
-						</tr>
-					</tbody>
-				</table>
-			</div>
-		</div>
-	</div>
+	 <div class="container mt-5">
+        <h2 class="text-center mb-4">List Students</h2>
+        <div class="container">
+        	<div class="row">
+        	  <div class="col">
+        	    <a class="btn btn-outline-success" th:href="@{students/new}"><i class="mx-1 fa-solid fa-plus"></i>Create User</a>
+        	  </div>
+        	</div>
+        </div>
+        <div class="row">
+            <div class="col-6 offset-3">
+                <table class="table table-dark table-hover">
+                    <thead class="table-dark">
+                      <tr>
+                        <th scope="col">Name</th>
+                        <th scope="col">Lastname</th>
+                        <th scope="col">Email</th>
+                        <th scope="col">Actions</th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                   
+            
+                      <tr th:each="students: ${students}">
+                        <td th:text="${students.name}"></td>
+                        <td th:text="${students.lastname}"></td>
+                        <td th:text="${students.email}"></td>
+                        <td>
+                         <a class="text-success" th:href="@{/students/edit/{id}(id=${students.id})}"><i class="fa-solid fa-pen-to-square mx-3"></i></a>	 
+ 						 <a class="text-danger" th:href="@{/students-delete/{id}(id=${students.id})}"><i class="fa-solid fa-trash"></i></a>
+                        </td>
+                      </tr>
+         
+                      
+                      
+                    </tbody>
+                  </table>
+            </div>
+        </div>
+    </div>
 	<!--Fin de Tabla-->
 	<script
 		src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js"></script>
