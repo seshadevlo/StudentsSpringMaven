@@ -1,18 +1,19 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org">
-<head th:replace="fragments/head::headerFragment('Create Student')"></head>
+  <head th:replace="fragments/head::headerFragment('Editar Student')"></head>
 <body class="fondo">
+
   <!-- Navbar -->
    <div th:replace="fragments/navbar :: navbar"></div>
    <!-- End Navbar -->
     <div class="container mt-5">
-        <h1 class="text-center">Student Form </h1>
+        <h1 class="text-center">Edit Student Form </h1>
 
         <div class="row mt-5">
             <div class="col-4 offset-4">
 
-                <form id="student-form" class="fondo-form" th:action="@{/students}" th:object="${student}" method="POST">
-            <!--   -->
+                <form id="student-form" th:action="@{/students/{id}(id=${student.id})}" class="fondo-form" th:object="${student}" method="POST">
+            
                     <div class="mb-3">
                         <label for="name" class="form-label">Nombre</label>
                         <input
@@ -20,9 +21,9 @@
                             class="form-control"
                             id="name"
                             th:field="*{name}"
-                     
+                           
                         />
-                       <small id="nameError" class="text-danger" style="display:none;">El campo nombre no puede estar vacio</small>
+                        <small id="nameError" class="text-danger" style="display:none;">El campo nombre no puede estar vacio</small>
                     </div>
 
                     <div class="mb-3">
@@ -32,27 +33,26 @@
                             class="form-control"
                             id="lastname"
                             th:field="*{lastname}"
-                          
+                            required
                         />
-                        <small id="lastNameError" class="text-danger" style="display:none;">El campo apellido no puede estar vacio</small>
-                  
+                         <small id="lastNameError" class="text-danger" style="display:none;">El campo apellido no puede estar vacio</small>
                     </div>
 
                     <div class="mb-3">
                         <label for="email" class="form-label">Email</label>
                         <input
-                            type="text"
+                            type="email"
                             class="form-control"
                             id="email"
                             th:field="*{email}"
-                            
+                            required
                         />
-                       <small id="emailError" class="text-danger" style="display:none;">El campo email es invalido</small>
+                         <small id="emailError" class="text-danger" style="display:none;">El campo email es invalido</small>
                     </div>
 					
 					<input type="hidden" name="option" value="updateStudent">
                     <div class="d-grid gap-2">
-                        <button type="submit" class="btn btn-success">Send</button>
+                        <button type="submit" class="btn btn-success">Edit Student</button>
                     </div>
 
                 </form>
